@@ -39,7 +39,7 @@ jenkins:
   scmCheckoutRetryCount: 0
   securityRealm: "operationsCenter"
   slaveAgentPort: 50000
-  systemMessage: "<font size=\"3\"><b><br /><br />5 Phil's Core demo system on Google GKE casc 2020-10-15<br /><br /></b></font>"
+  systemMessage: "<font size=\"3\"><b><br /><br />6 Phil's Core demo system on Google GKE casc 2020-10-15<br /><br /></b></font>"
   updateCenter:
     sites:
     - id: "core-mm-offline"
