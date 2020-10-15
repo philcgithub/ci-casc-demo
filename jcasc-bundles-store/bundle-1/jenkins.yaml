@@ -64,9 +64,6 @@ beekeeper:
   upgrades:
     autoDowngradePlugins: false
     autoUpgradePlugins: false
-notificationConfiguration:
-  enabled: true
-  router: "operationsCenter"
 aws:
   s3:
     container: "pcherry-s3-bucket"
