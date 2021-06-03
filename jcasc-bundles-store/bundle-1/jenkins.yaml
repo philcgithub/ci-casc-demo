@@ -115,10 +115,6 @@ unclassified:
     smtpHost: "smtp.gmail.com"
     useSsl: true
     useTls: false
-  operationsCenterRootAction:
-    connectionDetails: "----- BEGIN CONNECTION DETAILS -----\nH4sIAAAAAAAAAB3OQQ7CIBCF4buwdoA0WqDX8ATDdKrVSccA1YXx7qLbL/9L3ttcCm7NTIZz8nga\r\
-      \nB+AYMhwRA+QUIngOyzj4FFPM5mDWubceSLdWVIQLYNe9SOdra4/JObopWRLd58xcgVZbnz/Ya+Ni\r\
-      \nRQnl37g+fHE+K925P1hQKn++Uvf6wJEAAAA=\r\n----- END CONNECTION DETAILS -----\n"
   pollSCM:
     pollingThreadCount: 10
   usageStatisticsCloudBees:
