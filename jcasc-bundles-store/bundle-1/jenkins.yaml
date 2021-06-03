@@ -9,39 +9,26 @@ jenkins:
     standard:
       excludeClientIPFromCrumb: false
   disableRememberMe: false
-  disabledAdministrativeMonitors:
-  - "com.cloudbees.jenkins.support.impl.cloudbees.TcpSlaveAgentListenerMonitor"
   labelAtoms:
   - name: "master"
-  - name: "mastera-preprod"
   markupFormatter:
     rawHtml:
-      disableSyntaxHighlighting: true
+      disableSyntaxHighlighting: false
   mode: NORMAL
   myViewsTabBar: "standard"
-  nodes:
-  - permanent:
-      launcher:
-        jnlp:
-          workDirSettings:
-            disabled: false
-            failIfWorkDirIsMissing: false
-            internalDir: "remoting"
-      name: "mastera-preprod"
-      retentionStrategy: "always"
   numExecutors: 0
   primaryView:
     all:
       name: "all"
   projectNamingStrategy: "standard"
-  quietPeriod: 0
+  quietPeriod: 5
   remotingSecurity:
     enabled: true
   scmCheckoutRetryCount: 0
   securityRealm: "operationsCenter"
   slaveAgentPort: 50000
   systemMessage: "<font size=\"3\"><b><br /><br /><p style=\"text-align:center\">Phil's\
-    \ CI demo system on Google GKE 3rd June 2021</p><br /><br /></b></font>"
+    \ CloudBees CI demo system on Google GKE</p><br /><br /></b></font>"
   updateCenter:
     sites:
     - id: "core-mm-offline"
@@ -52,12 +39,6 @@ jenkins:
   - all:
       name: "all"
   viewsTabBar: "standard"
-advisor:
-  acceptToS: true
-  email: "pcherry@cloudbees.com"
-  excludedComponents:
-  - "SENDALL"
-  nagDisabled: false
 beekeeper:
   enabled: true
   securityWarnings:
@@ -66,15 +47,6 @@ beekeeper:
   upgrades:
     autoDowngradePlugins: false
     autoUpgradePlugins: false
-notificationConfiguration:
-  enabled: true
-  router: "operationsCenter"
-aws:
-  s3:
-    container: "pcherry-s3-bucket"
-    disableSessionToken: false
-    useHttp: false
-    usePathStyleUrl: false
 security:
   anonymizeSupportBundle:
     enabled: false
@@ -82,14 +54,8 @@ security:
     creationOfLegacyTokenEnabled: false
     tokenGenerationOnCreationEnabled: false
     usageStatisticsEnabled: true
-  configuration:
-    activateCredentialsMasking: true
   sSHD:
     port: -1
-  scriptApproval:
-    approvedSignatures:
-    - "method hudson.model.Run getCause java.lang.Class"
-    - "method org.jenkinsci.plugins.workflow.support.steps.build.RunWrapper getRawBuild"
 unclassified:
   artifactManager:
     artifactManagerFactories:
@@ -97,34 +63,23 @@ unclassified:
   buildDiscarders:
     configuredBuildDiscarders:
     - "jobBuildDiscarder"
-  defaultFolderConfiguration:
-    healthMetrics:
-    - worstChildHealthMetric:
-        recursive: true
-    - "averageChildHealthMetric"
-    - jobStatusHealthMetric:
-        countVirginJobs: false
-        failure: true
-        success: true
-        unbuilt: true
-        unstable: true
-    - "projectEnabledHealthMetric"
+  cloudBeesSCMReporting:
+    enabled: true
   email-ext:
     adminRequiredForTemplateTesting: false
     allowUnregisteredEnabled: false
     charset: "UTF-8"
     debugMode: false
-    defaultBody: "$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS:\r\n\r\nCheck\
-      \ console output at $BUILD_URL to view the results."
-    defaultContentType: "text/html"
+    defaultBody: |-
+      $PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS:
+
+      Check console output at $BUILD_URL to view the results.
+    defaultContentType: "text/plain"
     defaultSubject: "$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!"
     defaultTriggerIds:
     - "hudson.plugins.emailext.plugins.trigger.FailureTrigger"
     mailAccount:
-      smtpHost: "smtp.gmail.com"
-      smtpPassword: "{AQAAABAAAAAQ4uxqJc9557+QbkD4c+tIoHGTYwd79cV7MxozVZxnIpo=}"
-      smtpUsername: "pcherry@cloudbees.com"
-      useSsl: true
+      smtpPassword: "{AQAAABAAAAAQtW4nwSMAtracSsgvd6cd+XPxQ1zWXHyAHbfGfJOBeQ4=}"
     maxAttachmentSize: -1
     maxAttachmentSizeMb: -1
     precedenceBulk: false
@@ -137,7 +92,7 @@ unclassified:
   gitHubConfiguration:
     apiRateLimitChecker: ThrottleForNormalize
   gitHubPluginConfig:
-    hookUrl: "https://core-gke.pcherry.uk/master-a/github-webhook/"
+    hookUrl: "https://ci-gke.pcherry.uk/controller-a/github-webhook/"
   gitSCM:
     addGitTagAction: false
     allowSecondFetch: false
@@ -146,16 +101,14 @@ unclassified:
     hideCredentials: false
     showEntireCommitSummaryInChanges: false
     useExistingAccountWithSameEmail: false
-  globalDefaultFlowDurabilityLevel:
-    durabilityHint: SURVIVABLE_NONATOMIC
   junitTestResultStorage:
     storage: "file"
   location:
     adminAddress: "address not configured yet <nobody@nowhere>"
-    url: "https://core-gke.pcherry.uk/master-a/"
+    url: "https://ci-gke.pcherry.uk/controller-a/"
   mailer:
     authentication:
-      password: "{AQAAABAAAAAg5CWsrYaAoQXzlzaloL72WIgnswhp+76QcYZGPZXGOfjldrW+ORT9KAAKYvF5Grv6}"
+      password: "{AQAAABAAAAAg9veXdppP/Gix/lUR7hw74yOYbrKCnXBymyKFEyL8Vi1BcWITK9fmvpF3OvtWLi9I}"
       username: "pcherry@cloudbees.com"
     charset: "UTF-8"
     replyToAddress: "pcherry@cloudbees.com"
@@ -163,13 +116,11 @@ unclassified:
     useSsl: true
     useTls: false
   operationsCenterRootAction:
-    connectionDetails: "----- BEGIN CONNECTION DETAILS -----\nH4sIAAAAAAAAAB2NSQ7CMAwA/5IzTkoVQttv8ALbcdkCqbLQQ8XfSbmOZjSbuiZ8FzUpovk8WtcB\r\
-      \nDnYA24sHtCcGIRqxPzqHntRB3X1zO3hhLpIAG6kpNHQrZZmM4UdkzSFWTyIZOCbR+bOjugc6RMbw\r\
-      \nt0xLV6FL5Ke0/4why/cH6MpG4I8AAAA=\r\n----- END CONNECTION DETAILS -----\n"
+    connectionDetails: "----- BEGIN CONNECTION DETAILS -----\nH4sIAAAAAAAAAB3OQQ7CIBCF4buwdoA0WqDX8ATDdKrVSccA1YXx7qLbL/9L3ttcCm7NTIZz8nga\r\
+      \nB+AYMhwRA+QUIngOyzj4FFPM5mDWubceSLdWVIQLYNe9SOdra4/JObopWRLd58xcgVZbnz/Ya+Ni\r\
+      \nRQnl37g+fHE+K925P1hQKn++Uvf6wJEAAAA=\r\n----- END CONNECTION DETAILS -----\n"
   pollSCM:
     pollingThreadCount: 10
-  slackNotifier:
-    botUser: false
   usageStatisticsCloudBees:
     usageStatisticsCollected: true
 tool:
