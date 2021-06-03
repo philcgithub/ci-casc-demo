@@ -100,7 +100,6 @@ plugins:
 - {id: snakeyaml-api}
 - {id: ssh-credentials}
 - {id: sshd}
-- {id: sshd}
 - {id: structs}
 - {id: support-core}
 - {id: token-macro}

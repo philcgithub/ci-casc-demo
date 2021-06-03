@@ -79,7 +79,7 @@ unclassified:
     defaultTriggerIds:
     - "hudson.plugins.emailext.plugins.trigger.FailureTrigger"
     mailAccount:
-      smtpPassword: "{AQAAABAAAAAQtW4nwSMAtracSsgvd6cd+XPxQ1zWXHyAHbfGfJOBeQ4=}"
+      smtpPassword: "{AQAAABAAAAAQhlkqesJ1b7RApvZlTBHO6EFKbs8pJ/JwJ/dKxr1P4Ag=}"
     maxAttachmentSize: -1
     maxAttachmentSizeMb: -1
     precedenceBulk: false
@@ -91,8 +91,6 @@ unclassified:
     storage: "file"
   gitHubConfiguration:
     apiRateLimitChecker: ThrottleForNormalize
-  gitHubPluginConfig:
-    hookUrl: "https://ci-gke.pcherry.uk/controller-a/github-webhook/"
   gitSCM:
     addGitTagAction: false
     allowSecondFetch: false
@@ -105,10 +103,9 @@ unclassified:
     storage: "file"
   location:
     adminAddress: "address not configured yet <nobody@nowhere>"
-    url: "https://ci-gke.pcherry.uk/controller-a/"
   mailer:
     authentication:
-      password: "{AQAAABAAAAAg9veXdppP/Gix/lUR7hw74yOYbrKCnXBymyKFEyL8Vi1BcWITK9fmvpF3OvtWLi9I}"
+      password: "{AQAAABAAAAAggLRhyFsxpsEZ8/3lH6aBmie+7Tje1lqdyZlDQx+X3d3EB0d0gkEn1K5gYblDQPCB}"
       username: "pcherry@cloudbees.com"
     charset: "UTF-8"
     replyToAddress: "pcherry@cloudbees.com"
